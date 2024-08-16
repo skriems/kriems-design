@@ -1,0 +1,87 @@
+---
+import Cta from './Cta.astro'
+import ContentWrapper from './ContentWrapper.astro'
+---
+
+<div class="hero">
+  <ContentWrapper>
+    <div class="hero-content">
+      <h1 class="title">Marlene<br/>Kriems</h1>
+      <h2 class="subtitle">web<br/>design</h2>
+      <div class="hero-centered">
+        <Cta>contact me</Cta>
+      </div>
+    </div>
+  </ContentWrapper>
+</div>
+
+<style>
+  .title {
+    display: inline-block;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    padding-top: 10dvh;
+    letter-spacing: 0.2rem;
+  }
+ 
+  .subtitle {
+    display: inline-block;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    font-size: var(--font-xxl);
+    letter-spacing: 1rem;
+  }
+
+  .hero {
+    display: grid;
+    width: 100%;
+    min-height: 100dvh;
+    position: relative;
+    padding: 10vw;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/kriems-design/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 55% 50%;
+    z-index: -100;
+    filter: brightness(0.2);
+  }
+
+  @media (min-width: 768px) {
+    .title {
+      padding-top: 0;
+    }
+
+    .hero::before {
+      background-position: 70% 30%;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .hero::before {
+      background-position: 70% 45%;
+    }
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    height: 100%;
+    position: relative;
+  }
+
+  .hero-centered {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+</style

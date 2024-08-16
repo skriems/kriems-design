@@ -1,0 +1,35 @@
+---
+import Hamburger from "./Hamburger.astro";
+import ContentWrapper from "./ContentWrapper.astro";
+import Nav from "./Nav.astro";
+---
+
+<header id="header">
+  <ContentWrapper>
+    <div class="nav-wrapper">
+      <Nav />
+      <Hamburger />
+    </div>
+  </ContentWrapper>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    z-index: 100;
+    transition: top 0.3s linear;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>

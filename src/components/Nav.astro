@@ -1,0 +1,66 @@
+<nav>
+  <ul class="nav-links">
+    <li><a class="nav-link" href="#about">about</a></li>
+    <li><a class="nav-link" href="#projects">projects</a></li>
+    <li><a class="nav-link" href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 10vh;
+    right: -30vw;
+    margin: 0;
+    padding: 0 10vw 0 0;
+    list-style-type: none;
+    opacity: 0;
+    transition:
+      right 0.3s linear,
+      opacity 1s linear;
+    font-family: BebasNeue, system-ui, sans-serif;
+  }
+
+  .nav-links a {
+    display: block;
+    text-align: right;
+    padding: 10px 0 10px 0;
+    text-decoration: none;
+    font-size: var(--font-lg);
+    color: var(--color-primary);
+    text-transform: uppercase;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 0.2em;
+  }
+
+  .expanded {
+    right: 0;
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      display: flex;
+      position: unset;
+      width: auto;
+      opacity: 1;
+      background: none;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding: 15px 20px;
+      font-size: var(--font-md);
+    }
+  }
+</style>

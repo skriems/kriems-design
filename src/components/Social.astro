@@ -1,0 +1,54 @@
+---
+type Props = {
+  platform:
+    | "twitter"
+    | "facebook"
+    | "instagram"
+    | "github"
+    | "linkedin"
+    | "youtube";
+  username: string;
+};
+
+const { platform, username } = Astro.props;
+
+const iconClass = (platform: string) => {
+  switch (platform) {
+    case "twitter":
+      return "fa-twitter";
+    case "facebook":
+      return "fa-facebook";
+    case "instagram":
+      return "fa-instagram";
+    case "github":
+      return "fa-github";
+    case "linkedin":
+      return "fa-linkedin";
+    case "youtube":
+      return "fa-youtube";
+    default:
+      return "fa-link";
+  }
+};
+---
+
+<a
+  class={"fa " + iconClass(platform)}
+  href={`https://www.${platform}.com/${username}`}></a>
+
+<style>
+  a {
+    padding: 0.6rem 0.7rem;
+    font-size: 32px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: var(--color-background);
+    background: rgba(var(--rgb-accent), 0.8);
+    transition: background 0.3s ease;
+  }
+
+  a:hover {
+    background: rgba(var(--rgb-accent), 1);
+  }
+</style>

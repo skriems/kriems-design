@@ -1,0 +1,63 @@
+---
+import Social from './Social.astro';
+import ContentWrapper from './ContentWrapper.astro';
+---
+
+<footer>
+  <ContentWrapper>
+    <div class="social-icons">
+      <Social platform="twitter" username="skriems" />
+      <Social platform="github" username="skriems" />
+      <Social platform="youtube" username="skriems" />
+    </div>
+    <div class="legal-links">
+      <a href="impressum">impressum</a>
+      <a href="datenschutz">datenschutz</a>
+    </div>
+  </ContentWrapper>
+</footer>
+
+<style>
+footer {
+  padding: 10vw;
+  background: var(--color-background);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.legal-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--font-xxl);
+  gap: var(--font-xl);
+  font-size: var(--font-base);
+}
+
+.legal-links a {
+  font-family: BebasNeue, system-ui, sans-serif;
+  font-size: var(--font-base);
+  color: var(--color-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 380px) {
+.social-icons {
+  justify-content: end;
+}
+
+.legal-links {
+  flex-direction: row;
+  justify-content: end;
+}
+
+.legal-links a {
+  font-size: var(--font-md);
+}
+</style>

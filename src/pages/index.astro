@@ -101,16 +101,39 @@ import ContentWrapper from "../components/ContentWrapper.astro";
     <section>
       <ContentWrapper>
         <h2 id="contact">send me a message</h2>
-        <form class="contact-form">
-          <input class="form-input" placeholder="Name" required />
+        <form
+          class="contact-form"
+          method="POST"
+          action="https://formsubmit.co/78ca48119e01922299dbb80dd0482ef2"
+        >
+          <input
+            class="form-input"
+            type="text"
+            name="name"
+            autocomplete="name"
+            placeholder="Name"
+            required
+          />
           <input
             type="email"
+            name="e-mail"
+            autocomplete="email"
             class="form-input"
             placeholder="E-Mail"
             required
           />
-          <textarea class="form-input" placeholder="Message" required
-          ></textarea>
+          <input
+            type="hidden"
+            name="_subject"
+            value="New submission from kriems.design"
+          />
+          <textarea
+            class="form-input"
+            name="message"
+            placeholder="Message"
+            required
+          >
+          </textarea>
           <button type="submit">submit</button>
         </form>
       </ContentWrapper>

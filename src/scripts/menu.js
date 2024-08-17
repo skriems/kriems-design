@@ -1,11 +1,5 @@
-const toggleNav = () =>
-  document.querySelector(".nav-links").classList.toggle("expanded");
 const closeNav = () =>
-  document.querySelector(".nav-links").classList.remove("expanded");
-
-document.querySelector(".hamburger").addEventListener("click", () => {
-  toggleNav();
-});
+  (document.querySelector("#toggle-checkbox").checked = false);
 
 /** close nav menu upon click */
 document.querySelectorAll(".nav-link").forEach((link) => {
@@ -18,10 +12,10 @@ var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
-    document.getElementById("header").style.top = "0";
-  } else {
-    document.getElementById("header").style.top = "-60px";
+    document.getElementById("header").style.top = "-10px";
+  } else if (window.pageYOffset > 100) {
     closeNav();
+    document.getElementById("header").style.top = "-100px";
   }
   prevScrollpos = currentScrollPos;
 };

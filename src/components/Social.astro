@@ -12,7 +12,7 @@ type Props = {
 
 const { platform, username } = Astro.props;
 
-const iconClass = (platform: string) => {
+const iconClass = (platform: Props["platform"]) => {
   switch (platform) {
     case "twitter":
       return "fa-twitter";

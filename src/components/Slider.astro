@@ -1,0 +1,109 @@
+---
+import { slugify } from '../utils/slugify';
+
+const slides = [
+{ 
+  title: 'Sailtrack',
+  images: [
+    { src: 'images/mockups-sailtrack.png', alt: 'Sailtrack App' },
+    { src: 'images/mockup-sailtrack-1.png', alt: 'Sailtrack App 1' },
+    { src: 'images/mockup-sailtrack-2.png', alt: 'Sailtrack App 2' },
+    { src: 'images/mockup-sailtrack-3.png', alt: 'Sailtrack App 3' },
+  ],
+  text: 'SailTrack is a project, which I designed for my husband, a passionate sailor and web developer. This native app tracks routes on the water. With SailTrack, you can easily record and analyze your sailing journeys, helping you to navigate the seas more effectively.'
+},
+{ 
+  title: 'Craftomatic',
+  images: [
+    { src: 'images/mockups-craftomatic.png', alt: 'Craftomatic App' },
+    { src: 'images/mockup-craftomatic-1.png', alt: 'Craftomatic App 1' },
+    { src: 'images/mockup-craftomatic-2.png', alt: 'Craftomatic App 2' },
+    { src: 'images/mockup-craftomatic-3.png', alt: 'Craftomatic App 3' },
+  ],
+  text: 'This Progressive Web App never misses a minute of work – the app automatically tracks your time and generates your work hours in no time. I really fancied designing these smart app in Skeuomorphism style.'
+  },
+];
+
+---
+{((slides || [])).map((slide, index) =>
+  <h3>{slide.title}</h3>
+  <div class="slides-container">
+    <div class="slides-images" style={`${index % 2 === 0 ? "order: 0" : "order: 1"}`}>
+      {slide.images.map((image) =>
+        <img id={`slide-image-${slugify(image.alt)}`}  class="slide-image" src={image.src} alt={image.alt} />
+      )}
+    </div>
+    <div class="slides-texts">
+    <p class="slide-text">{slide.text}</p>
+    </div>
+  </div>
+)}
+
+<script>
+  const options = {
+    root: document.querySelector(".slides-images"),
+    threshold: 0.5,
+  };
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      const imageId = entry.target.id;
+      const splitted = imageId.split("slide-image");
+      const textId = splitted[0] + "slide-text" + splitted[1];
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        document.getElementById(textId).classList.add("active");
+      } else {
+        entry.target.classList.remove("active");
+        document.getElementById(textId).classList.remove("active");
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(callback, options);
+  document.querySelectorAll(".slide-image").forEach((slide) => {
+    observer.observe(slide);
+  });
+</script>
+
+<style>
+  .slides-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media only screen and (min-width: 640px) {
+    .slides-container {
+      grid-template-columns: 300px 1fr;
+    }
+  }
+
+  .slides-images {
+    display:flex;
+    overflow-x: scroll;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+  }
+
+  .slide-image {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    scroll-padding: 0 50%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .slides-texts {
+    min-height: 220px;
+  }
+
+  .slide-text {
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+
+  .slide-text.active {
+    opacity: 1;
+  }
+</style>

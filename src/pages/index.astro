@@ -2,6 +2,7 @@
 import Page from "../layouts/Page.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/PortraitHero.astro";
+import Slider from "../components/Slider.astro";
 import ContentWrapper from "../components/ContentWrapper.astro";
 ---
 
@@ -35,24 +36,9 @@ import ContentWrapper from "../components/ContentWrapper.astro";
     <section>
       <ContentWrapper>
         <h2 id="projects">my projects</h2>
-        <p>
-          Welcome to my way of webdesigning, where functonality and style come
-          together seamlessly!
-        </p>
-        <p>
-          With my fancy for blending aesthetics with functionality and
-          responsive design, I make sure that your site looks amazing on every
-          device.
-        </p>
-        <p>
-          I prioritize an awesome user experience (UX) and an intuitive user
-          interface (UI). With meticulous layout design, I bring your message
-          and content to life. Every element is strategically placed to grab
-          attention exactly where you want it.
-        </p>
-        <p>
-          And don't worry, your site will be fully optimized for mobile too.
-        </p>
+        <div class="slider-wrapper">
+          <Slider />
+        </div>
       </ContentWrapper>
     </section>
     <section>

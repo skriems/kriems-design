@@ -1,5 +1,6 @@
 ---
-type Props = {
+import type { HTMLAttributes } from 'astro/types';
+type Props = HTMLAttributes<'a'> & {
   platform:
     | "twitter"
     | "facebook"
@@ -7,10 +8,9 @@ type Props = {
     | "github"
     | "linkedin"
     | "youtube";
-  username: string;
 };
 
-const { platform, username } = Astro.props;
+const { class: className, platform, ...props } = Astro.props;
 
 const iconClass = (platform: Props["platform"]) => {
   switch (platform) {
@@ -31,11 +31,7 @@ const iconClass = (platform: Props["platform"]) => {
   }
 };
 ---
-
-<a
-  class={"fa " + iconClass(platform)}
-  href={`https://www.${platform}.com/${username}`}></a>
-
+<a class:list={[className, "fa " + iconClass(platform)]} {...props}></a>
 <style>
   a {
     padding: 0.6rem 0.7rem;

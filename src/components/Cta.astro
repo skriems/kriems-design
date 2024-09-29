@@ -1,20 +1,35 @@
-<button type="button" class="cta-btn">
+---
+import type { HTMLAttributes } from 'astro/types';
+type Props = HTMLAttributes<'a'>;
+const { class: className, ...props } = Astro.props;
+---
+
+<a class:list={[className]} {...props}>
   <slot />
-</button>
+</a>
 
 <style>
-  .cta-btn {
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 210px;
     height: 60px;
     padding: 14px 20px;
     margin: 8px 0;
 
-    background: rgba(255, 255, 255, 0.1);
+    font-family: BebasNeue, system-ui, sant-serif;
+    font-size: 1.2rem;
+    background: var(--color-accent);
+    color: var(--color-background);
     backdrop-filter: blur(10px);
     transition: background 0.3s;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
   }
 
-  .cta-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+  a:hover {
+    background: rgba(var(--rgb-accent), 0.7);
   }
 </style>

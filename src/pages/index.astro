@@ -2,40 +2,42 @@
 import Page from "../layouts/Page.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/PortraitHero.astro";
+import BlockQuote from "../components/BlockQuote.astro";
 import Slider from "../components/Slider.astro";
 import ContentWrapper from "../components/ContentWrapper.astro";
 ---
 
-<Page title="Marlene Kriems - Webdesign">
+<Page title="Marlene Kriems - Webdesign" description="Welcome to my humble corner of the web.">
   <Header />
   <Hero />
   <main>
-    <section>
-      <ContentWrapper>
-        <h2>hi there!</h2>
-        <p>
-          Welcome to my way of webdesigning, where functonality and style come
-          together seamlessly!
-        </p>
-        <p>
-          With my fancy for blending aesthetics with functionality and
-          responsive design, I make sure that your site looks amazing on every
-          device.
-        </p>
-        <p>
-          I prioritize an awesome user experience (UX) and an intuitive user
-          interface (UI). With meticulous layout design, I bring your message
-          and content to life. Every element is strategically placed to grab
-          attention exactly where you want it.
-        </p>
-        <p>
-          And don't worry, your site will be fully optimized for mobile too.
-        </p>
+    <section class="two-rows">
+      <ContentWrapper class="center">
+        <BlockQuote>
+          minimalism is not the absence<br/>
+          of elegance, but its essence.
+        </BlockQuote>
+      </ContentWrapper>
+      <ContentWrapper class="foo">
+        <h2>Hey,</h2>
+        <div>
+          <p>
+            schön dass du hier bist!
+          </p>
+          <p>
+            ich bin Marlene, Webdesignerin aus Radolfzell am Bodensee. 
+            Mich begeistert es, einzigartige, nutzerfreundliche Websites zu entwerfen, bei denen Ästhetik und Funktionalität nahtlos zusammenkommen. 
+            Hier erfährst du alles über meine Projekte, ein wenig über mich ;) und wie ich digitale Erlebnisse lebendig mache!
+          </p>
+          <p>
+            Webdesign ist für mich mehr als nur ein Beruf – es ist meine Leidenschaft.”
+          </p>
+        </div>
       </ContentWrapper>
     </section>
-    <section>
+    <section class="invert">
       <ContentWrapper>
-        <h2 id="projects">my projects</h2>
+        <h2 id="projects">meine projekte</h2>
         <div class="slider-wrapper">
           <Slider />
         </div>
@@ -45,48 +47,38 @@ import ContentWrapper from "../components/ContentWrapper.astro";
       <ContentWrapper>
         <h2 id="about">about me</h2>
         <p>
-          Hey, I'm Marlene, juggling the joys of motherhood with being the
-          better half of a developer. Always up for a challenge - constantly
-          reinventing myself!
+          Warum wird man Webdesigner? Für mich ist es die perfekte Mischung aus
+          Kreativität und Technik. Es begeistert mich, Ideen visuell zum Leben
+          zu erwecken und gleichzeitig sicherzustellen, dass Websites nicht nur
+          gut aussehen, sondern auch funktionieren.
         </p>
         <p>
-          My entry into web design began with a deep passion for aesthetics and
-          self-directed learning.
+          Meine Leidenschaft für Ästhetik und autodidaktisches Lernen hat mich
+          vor drei Jahren zum Webdesign gebracht. Seitdem habe ich mich stetig
+          weiterentwickelt und entwerfe Designs mit Sorgfalt und Präzision. Was
+          mich besonders fasziniert, ist die Möglichkeit, das Nutzererlebnis
+          (UX) zu verbessern und eine intuitive Benutzeroberfläche (UI) zu
+          schaffen. Es geht nicht nur darum, etwas Schönes zu gestalten,
+          sondern Inhalte lebendig zu machen und Nutzer dabei zu unterstützen,
+          sich mühelos zurechtzufinden - auf jedem Gerät.
         </p>
         <p>
-          I gained my first experiences as a web designer two years ago at
-          SailrsGmbH, where I successfully completed initial client projects,
-          including both websites and app designs. At the beginning of this
-          year, I decided to pursue a path of self-employment to work more
-          freely and creatively.
+          Bei der Sailrs GmbH konnte ich wertvolle Erfahrungen sammeln und
+          erste Projekte erfolgreich umsetzen – von WordPress-Websites bis hin
+          zu App-Designs. Neben Kundenprojekten widme ich mich auch meinen
+          eigenen Designs und bilde mich stetig weiter, um immer am Puls der
+          neuesten Trends und Technologien zu bleiben.
         </p>
         <p>
-          I prefer the combination of aesthetics and minimalism, which allows me
-          to create clean, user-friendly, and visually appealing designs. I also
-          work on my own projects and continuously educate myself to keep up
-          with the latest trends and technologies. My goal is to provide genuine
-          value to my clients through innovative and functional designs.
-        </p>
-        <p>
-          But I'm not just about client projects. I am also passionate about my
-          personal endeavors, where I cultivated my unique style by crafting
-          designs and logos from scratch.
-        </p>
-        <p>
-          And let's not forget my love affair with AI tools - always looking for
-          the next big thing to jazz up my creative process!
-        </p>
-        <p>
-          So, if you're looking for someone who can sprinkle a bit of magic on
-          your projects, look no further. With a dash of creativity, a sprinkle
-          of professionalism, and a whole lot of attention to detail, I'm your
-          go-to gal for all things design in the freelance world!
+          Seit Mitte 2024 arbeite ich im Team der UXCrew und unterstütze bei
+          der Umsetzung von Webseiten für Kunden aus den verschiedensten
+          Branchen.
         </p>
       </ContentWrapper>
     </section>
     <section>
       <ContentWrapper>
-        <h2 id="contact">send me a message</h2>
+        <h2 id="contact">schick mir eine nachricht</h2>
         <form
           class="contact-form"
           method="POST"
@@ -116,11 +108,11 @@ import ContentWrapper from "../components/ContentWrapper.astro";
           <textarea
             class="form-input"
             name="message"
-            placeholder="Message"
+            placeholder="Text"
             required
           >
           </textarea>
-          <button type="submit">submit</button>
+          <button type="submit">senden</button>
         </form>
       </ContentWrapper>
     </section>
@@ -128,35 +120,6 @@ import ContentWrapper from "../components/ContentWrapper.astro";
 </Page>
 
 <style>
-  --accent: 136, 58, 234;
-  --accent-light: 224, 204, 250;
-  --accent-dark: 49, 10, 101;
-  --accent-gradient: linear-gradient(
-    45deg,
-    rgb(var(--accent)),
-    rgb(var(--accent-light)) 30%,
-    white 60%
-  );
-
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-
   form {
     display: flex;
     flex-direction: column;
@@ -177,5 +140,33 @@ import ContentWrapper from "../components/ContentWrapper.astro";
 
   textarea.form-input {
     min-height: 200px;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8vh;
+  }
+  .two-rows {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    min-height: 100vh;
+  }
+  .foo {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+  }
+  .foo h2 {
+    color: var(--color-accent);
+    margin: 0;
+  }
+  .invert {
+    color: var(--color-primary);
+    background: var(--color-accent);
+    min-height: 100vh;
+  }
+  #contact {
+    color: var(--color-accent);
+    margin-top: 8vh;
   }
 </style>

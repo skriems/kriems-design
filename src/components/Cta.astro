@@ -18,18 +18,17 @@ const { class: className, ...props } = Astro.props;
     padding: 14px 20px;
     margin: 8px 0;
 
-    font-family: BebasNeue, system-ui, sant-serif;
+    font-family: Oswald, system-ui, sant-serif;
     font-size: 1.2rem;
-    background: var(--color-accent);
-    color: var(--color-background);
+    background: rgba(var(--rgb-background), 0.6);
+    color: var(--color-primary);
     backdrop-filter: blur(10px);
     transition: background 0.3s;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 5px;
   }
 
   a:hover {
-    background: rgba(var(--rgb-accent), 0.7);
+    background: rgba(var(--rgb-background), 1);
   }
 </style>

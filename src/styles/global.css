@@ -1,11 +1,13 @@
 :root {
-  --rgb-primary: 255, 255, 255;
+  --rgb-white: 255, 255, 255;
   --rgb-accent: 255, 145, 136;
-  --rgb-background: 63, 31, 161;
+  --rgb-background: 52, 22, 142;
+  --rgb-background-light: 63, 31, 161;
 
-  --color-primary: rgb(var(--rgb-primary));
+  --color-primary: rgb(var(--rgb-white));
   --color-accent: rgb(var(--rgb-accent));
   --color-background: rgb(var(--rgb-background));
+  --color-text: rgb(var(--rgb-white));
 
   --font-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
   --font-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
@@ -58,12 +60,12 @@
 }
 
 html {
-  font-family: system-ui, sans-serif;
+  font-family: "Raleway", system-ui, sans-serif;
   background: #13151a;
 }
 
 body {
-  color: var(--color-primary);
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -90,8 +92,8 @@ h2 {
 }
 
 p {
-  font-family: Oswald, system-ui, sans-serif;
   font-size: var(--font-base);
+  line-height: 1.8rem;
 }
 
 button {
